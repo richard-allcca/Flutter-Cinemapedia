@@ -36,12 +36,24 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     super.initState();
 
     ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
+    ref.read(populateMoviesProvider.notifier).loadNextPage();
+    ref.read(topRatedMoviesProvider.notifier).loadNextPage();
+    ref.read(upcomingMoviesProvider.notifier).loadNextPage();
   }
 
   @override
   Widget build(BuildContext context) {
     // Full list of videos
     final nowPlayingMovies = ref.watch(nowPlayingMoviesProvider);
+
+    // Full list of videos populates
+    final populatePlayingMovies = ref.watch(populateMoviesProvider);
+
+    // Full list of videos top rated
+    final topRatedPlayingMovies = ref.watch(topRatedMoviesProvider);
+
+    // Full list of videos upcoming
+    final upcomingPlayingMovies = ref.watch(upcomingMoviesProvider);
 
     // Exclusive provider to cut movie list
     final slidesShowMovies = ref.watch(moviesSlideshowProvider);
@@ -67,25 +79,25 @@ class _HomeViewState extends ConsumerState<_HomeView> {
                   ref.read(nowPlayingMoviesProvider.notifier).loadNextPage(),
             ),
             MovieHorizontalList(
-              movies: nowPlayingMovies,
+              movies: upcomingPlayingMovies,
               title: 'Próximamente',
               subTitle: 'En este mes',
               loadNextPage: () =>
-                  ref.read(nowPlayingMoviesProvider.notifier).loadNextPage(),
+                  ref.read(upcomingMoviesProvider.notifier).loadNextPage(),
             ),
             MovieHorizontalList(
-              movies: nowPlayingMovies,
+              movies: populatePlayingMovies,
               title: 'Populares',
               subTitle: 'Del mes',
               loadNextPage: () =>
-                  ref.read(nowPlayingMoviesProvider.notifier).loadNextPage(),
+                  ref.read(populateMoviesProvider.notifier).loadNextPage(),
             ),
             MovieHorizontalList(
-              movies: nowPlayingMovies,
+              movies: topRatedPlayingMovies,
               title: 'Mejor calificadas',
               subTitle: 'De siempre',
               loadNextPage: () =>
-                  ref.read(nowPlayingMoviesProvider.notifier).loadNextPage(),
+                  ref.read(topRatedMoviesProvider.notifier).loadNextPage(),
             ),
             const SizedBox(height: 20),
           ]);
