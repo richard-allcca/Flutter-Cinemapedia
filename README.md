@@ -6,6 +6,8 @@ A new Flutter project.
 
 - [TMDB - API Video](https://www.themoviedb.org/)
 - [Doc - TMDB Api](https://developer.themoviedb.org/docs/getting-started)
+- [Card - Swiper](https://pub.dev/packages/card_swiper)
+- [Int - Format numbers](https://pub.dev/packages/intl)
 
 ## Credentials
 

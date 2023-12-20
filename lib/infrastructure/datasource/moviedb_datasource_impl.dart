@@ -18,12 +18,16 @@ class MovieDbDataSource extends MoviesDataSource {
   @override
   Future<List<Movie>> getNowPlaying({int page = 1}) async {
     try {
-      final response = await dio.get('/movie/now_playing');
+      final response =
+          await dio.get('/movie/now_playing', queryParameters: {'page': page});
+
       final movieDbResponse = MovieDbResponse.fromJson(response.data);
+
       final List<Movie> movies = movieDbResponse.results
           .where((element) => element.posterPath != 'no-poster')
           .map((movieDb) => MovieMapper.movieDbToEntity(movieDb))
           .toList();
+
       return movies;
     } catch (e) {
       print('Error: $e');
