@@ -10,6 +10,27 @@ final appRouter = GoRouter(
       path: '/',
       name: MoviesHomeScreen.name,
       builder: (context, state) => const MoviesHomeScreen(),
+      routes: [
+        GoRoute(
+          path: 'movie/:id', // Remember quit first slash
+          name: MovieScreen.name,
+          builder: (context, state) {
+            final movieId = state.pathParameters['id'] ?? 'no-id';
+
+            return MovieScreen(movieId: movieId);
+          }
+        ),
+
+      ]
     ),
+    // GoRoute(
+    //   path: '/movie/:id',
+    //   name: MovieScreen.name,
+    //   builder: (context, state) {
+    //     final movieId = state.pathParameters['id'] ?? 'no-id';
+
+    //     return MovieScreen(movieId: movieId);
+    //   }
+    // ),
   ]
 );
