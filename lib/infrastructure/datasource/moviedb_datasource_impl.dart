@@ -98,4 +98,17 @@ class MovieDbDataSource extends MoviesDataSource {
       return throw Exception('fallo la búsqueda del video por Id');
     }
   }
+
+  @override
+  Future<List<Movie>> searchMovie(String query) async {
+    try {
+      final response =
+          await dio.get('/search/movie/');
+
+      return _jsonToMovies(response.data);
+    } catch (e) {
+      // print('Error: $e');
+      return [];
+    }
+  }
 }
