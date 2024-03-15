@@ -9,17 +9,14 @@ import 'package:cinemapedia/infrastructure/models/movieDb/moviedb_response.dart'
 import 'package:cinemapedia/domain/entities/movie.dart';
 
 class MovieDbDataSource extends MoviesDataSource {
-  final dio = Dio(
-    BaseOptions(
+  final dio = Dio(BaseOptions(
       baseUrl: 'https://api.themoviedb.org/3',
       queryParameters: {
         'api_key': Environment.movieDbKey,
-        'lenguage': 'es-PE'
-      }
-    )
-  );
+        'lenguaje': 'es-PE'
+      }));
 
-  List<Movie> _jsonToMovies(Map<String, dynamic> data){
+  List<Movie> _jsonToMovies(Map<String, dynamic> data) {
     final movieDbResponse = MovieDbResponse.fromJson(data);
 
     final List<Movie> movies = movieDbResponse.results
@@ -86,7 +83,7 @@ class MovieDbDataSource extends MoviesDataSource {
   Future<Movie> getMovieById(String id) async {
     try {
       final response = await dio.get('/movie/$id');
-      if(response.statusCode != 200) throw Exception('Movie not found');
+      if (response.statusCode != 200) throw Exception('Movie not found');
 
       final movieDetails = MovieDetails.fromJson(response.data);
 
@@ -101,16 +98,11 @@ class MovieDbDataSource extends MoviesDataSource {
 
   @override
   Future<List<Movie>> searchMovie(String query) async {
-
-    if ( query.isEmpty ) return [];
+    if (query.isEmpty) return [];
 
     try {
       final response =
-          await dio.get('/search/movie',
-            queryParameters: {
-              'query': query
-            }
-          );
+          await dio.get('/search/movie', queryParameters: {'query': query});
 
       return _jsonToMovies(response.data);
     } catch (e) {
