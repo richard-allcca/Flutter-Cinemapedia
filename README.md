@@ -11,13 +11,36 @@ A new Flutter project.
 
 ## Credentials
 
-- Clave de la API
-    e928d06fdb99aa428f609f48b22098d5
+Para API y TOKEN
 
-- Token de acceso de lectura a la API
-    eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlOTI4ZDA2ZmRiOTlhYTQyOGY2MDlmNDhiMjIwOThkNSIsInN1YiI6IjY1N2VmNWNmNDgzMzNhNGU5MWNiMDNkZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e6Hde9DThOyZRXG_14nlXj8um_GEI7N6eo4DGfRyLG8
+[The Movie DB](https://www.themoviedb.org/)
 
-## Dev
+## Levantar proyecto en local
 
 1. Copiar en example.env y renombrarlo a .env
 2. Cambiar las variables de entorno (the movieDb)
+
+## Instalación de dependencias
+
+![Pub assist](image.png)
+
+## dependencias
+
+> Recuerda verificar la instalación en el archivo pubspec.yaml
+
+- Manejo de rutas: go_router
+  - [Documentación](https://pub.dev/packages/go_router)
+  - Ejemplo de uso en config/router/app_router.dart
+- Variable de entorno: flutter_dotenv
+  - [Documentación](https://pub.dev/packages/flutter_dotenv)
+  - Ejemplo de uso en main.dart ln/12
+- Peticiones http: dio
+  - Ejemplo de uso en infrastructure/movieDb_dataSource.dart
+- Controlador de estado: flutter_riverpod
+  - Implementación global en main ln/15 ProviderScope
+  - Ejemplo de uso en movies_repository_provider.dart
+
+## Herramientas
+
+- Convert JSON
+  - [Quicktype.io](https://quicktype.io/)

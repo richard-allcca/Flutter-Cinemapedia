@@ -3,6 +3,7 @@
     "cinemapedia",
     "dotenv",
     "imdb",
+    "pubspec",
     "riverpod",
     "Swiper"
   ],

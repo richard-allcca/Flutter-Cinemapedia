@@ -1,16 +1,15 @@
-import 'package:cinemapedia/presentation/widgets/shared/full_screen_loader.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:cinemapedia/presentation/providers/providers.dart';
-
+import 'package:cinemapedia/presentation/widgets/shared/full_screen_loader.dart';
 import 'package:cinemapedia/presentation/widgets/widgets.dart';
 
-class MoviesHomeScreen extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   static String name = 'movie_home_screen';
 
-  const MoviesHomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +23,7 @@ class MoviesHomeScreen extends StatelessWidget {
   }
 }
 
+// NOTE -  ConsumerStatefulWidget: Permite leer los providers
 class _HomeView extends ConsumerStatefulWidget {
   const _HomeView();
 
@@ -31,6 +31,7 @@ class _HomeView extends ConsumerStatefulWidget {
   _HomeViewState createState() => _HomeViewState();
 }
 
+// NOTE - ConsumerState: permite el acceso a los estados mediante el ref
 class _HomeViewState extends ConsumerState<_HomeView> {
   @override
   void initState() {

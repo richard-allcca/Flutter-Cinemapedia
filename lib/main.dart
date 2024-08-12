@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> main() async {
 
+  // Settings global for environment variables
   await dotenv.load(fileName: '.env');
 
   runApp(

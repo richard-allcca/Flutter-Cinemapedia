@@ -1,4 +1,4 @@
-class MovieForMovieDb {
+class MovieFromMovieDb {
     final bool adult;
     final String? backdropPath;
     final List<int> genreIds;
@@ -14,7 +14,7 @@ class MovieForMovieDb {
     final double voteAverage;
     final int voteCount;
 
-    MovieForMovieDb({
+    MovieFromMovieDb({
         required this.adult,
         required this.backdropPath,
         required this.genreIds,
@@ -31,7 +31,7 @@ class MovieForMovieDb {
         required this.voteCount,
     });
 
-    factory MovieForMovieDb.fromJson(Map<String, dynamic> json) => MovieForMovieDb(
+    factory MovieFromMovieDb.fromJson(Map<String, dynamic> json) => MovieFromMovieDb(
         adult: json["adult"] ?? false,
         backdropPath: json["backdrop_path"] ?? '',
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
