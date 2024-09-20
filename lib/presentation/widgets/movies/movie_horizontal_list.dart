@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'package:animate_do/animate_do.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:cinemapedia/config/helpers/format_numbers_rating.dart';
 import 'package:cinemapedia/domain/entities/movie.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class MovieHorizontalList extends StatefulWidget {
 
@@ -30,6 +32,8 @@ class _MovieHorizontalListState extends State<MovieHorizontalList> {
   @override
   void initState() {
     super.initState();
+
+    // NOTE - Creado el listener debes crear un 'dispose'
 
     scrollController.addListener(() {
       if (widget.loadNextPage == null) return;
@@ -71,6 +75,41 @@ class _MovieHorizontalListState extends State<MovieHorizontalList> {
             ),
 
           )
+        ],
+      ),
+    );
+  }
+}
+
+class _Title extends StatelessWidget {
+
+  final String? title;
+  final String? subTitle;
+
+  const _Title({this.title, this.subTitle});
+
+  @override
+  Widget build(BuildContext context) {
+
+    final titleStyle = Theme.of(context).textTheme.titleLarge;
+
+    return Container(
+      padding: const EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
+        children: [
+
+          if(title != null)
+            Text(title!, style: titleStyle),
+
+          const Spacer(),
+
+          if(subTitle != null)
+            FilledButton.tonal(
+              style: const ButtonStyle(visualDensity: VisualDensity.compact),
+              onPressed: () {},
+              child: Text(subTitle!)
+            )
         ],
       ),
     );
@@ -153,41 +192,6 @@ class _Slide extends StatelessWidget {
             ),
           )
 
-        ],
-      ),
-    );
-  }
-}
-
-class _Title extends StatelessWidget {
-
-  final String? title;
-  final String? subTitle;
-
-  const _Title({this.title, this.subTitle});
-
-  @override
-  Widget build(BuildContext context) {
-
-    final titleStyle = Theme.of(context).textTheme.titleLarge;
-
-    return Container(
-      padding: const EdgeInsets.only(top: 10),
-      margin: const EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-        children: [
-
-          if(title != null)
-            Text(title!, style: titleStyle),
-
-          const Spacer(),
-
-          if(subTitle != null)
-            FilledButton.tonal(
-              style: const ButtonStyle(visualDensity: VisualDensity.compact),
-              onPressed: () {},
-              child: Text(subTitle!)
-            )
         ],
       ),
     );

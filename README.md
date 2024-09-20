@@ -2,6 +2,18 @@
 
 A new Flutter project.
 
+## Levantar proyecto en local
+
+Android SDK 34
+
+```md
+  <!-- Para instalar las dependencias sin modificar el proyecto -->
+  flutter pub get --no-pub
+```
+
+1. Copiar en example.env y renombrarlo a .env
+2. Cambiar las variables de entorno (the movieDb)
+
 ## Links
 
 - [TMDB - API Video](https://www.themoviedb.org/)
@@ -14,11 +26,6 @@ A new Flutter project.
 Para API y TOKEN
 
 [The Movie DB](https://www.themoviedb.org/)
-
-## Levantar proyecto en local
-
-1. Copiar en example.env y renombrarlo a .env
-2. Cambiar las variables de entorno (the movieDb)
 
 ## Instalación de dependencias
 

@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:card_swiper/card_swiper.dart';
+
 import 'package:cinemapedia/domain/entities/movie.dart';
-import 'package:flutter/material.dart';
 
 class MoviesSlidesShow extends StatelessWidget {
 
@@ -55,7 +57,7 @@ class _Slide extends StatelessWidget {
         BoxShadow(
           color: Colors.black45,
           blurRadius: 10, // difuminado
-          offset: Offset(0,10)
+          offset: Offset(0,10) // dirección del boxShadow
         )
       ]
     );
