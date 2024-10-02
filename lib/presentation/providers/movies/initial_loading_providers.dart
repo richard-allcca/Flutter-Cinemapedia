@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:cinemapedia/presentation/providers/providers.dart';
 
+// NOTE - Este provider se mantiene escuchando a todos los providers para mostrar el loader
+
 final initialLoadingProvider = Provider<bool>((ref) {
 
       // Full list of videos
@@ -16,9 +18,9 @@ final initialLoadingProvider = Provider<bool>((ref) {
       // Full list of videos upcoming
       final step4 = ref.watch(upcomingMoviesProvider).isEmpty;
 
+      // Si alguno aun esta vacío
       if (
-        step1 || step2
-        || step3 || step4
+        step1 || step2 || step3 || step4
       ) {
         return true;
       }

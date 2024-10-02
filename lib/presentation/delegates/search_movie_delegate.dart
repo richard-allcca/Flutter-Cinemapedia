@@ -5,6 +5,8 @@ import 'package:cinemapedia/config/helpers/format_numbers_rating.dart';
 import 'package:cinemapedia/domain/entities/movie.dart';
 import 'package:flutter/material.dart';
 
+// Input de búsqueda
+
 typedef SearchMoviesCallback = Future<List<Movie>> Function(String query);
 
 class SearchMovieDelegate extends SearchDelegate<Movie?> {
